@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 //This route will help craete the book and push into DB
-router.post('/books', async (request, response) => {
+router.post('/', async (request, response) => {
     try{
         if(
             !request.body.title ||
@@ -33,7 +33,7 @@ router.post('/books', async (request, response) => {
 })
 
 //Route for Get all Books from database
-router.get('/books', async (request, response) => {
+router.get('/', async (request, response) => {
     try{
         const books = await Book.find({});
 
@@ -48,7 +48,7 @@ router.get('/books', async (request, response) => {
 });
 
 //Get book by ID in postman
-router.get('/books/:id', async (request, response) => {
+router.get('/:id', async (request, response) => {
     try{
 
         const { id } = request.params
@@ -62,7 +62,7 @@ router.get('/books/:id', async (request, response) => {
 });
 
 //Route for updaing the book
-router.put('/books/:id', async (request, response) => {
+router.put('/:id', async (request, response) => {
     try{
         if(
             !request.body.title ||
@@ -93,7 +93,7 @@ router.put('/books/:id', async (request, response) => {
 })
 
 //Route for a book in database
-router.delete('/books/:id', async (request, response) => {
+router.delete('/:id', async (request, response) => {
     try{
         const { id } = request.params;
         
